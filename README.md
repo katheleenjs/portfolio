@@ -3,7 +3,7 @@
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 ![Figma](https://img.shields.io/badge/Figma-1E1E1E?style=for-the-badge&logo=figma&logoColor=white)
 
-# Portfolio
+# Portfólio
 
 Meu portfólio pessoal desenvolvido para apresentar meus projetos, habilidades e evolução como Product Designer e Front-end Developer.
 
