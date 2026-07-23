@@ -41,6 +41,7 @@ Além de apresentar meus projetos, ele também demonstra minha evolução em des
 ## 📸 Preview
 
 ![Preview do Portfólio](./assets/images/portfolio.png)
+https://katheleenjs.github.io/portfolio/
 
 ## 📫 Contato
 
