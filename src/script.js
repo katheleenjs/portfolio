@@ -39,9 +39,7 @@ const observer = new IntersectionObserver((entries)=>{
             entry.target.classList.add("active");
 
         }
-
     });
-
 },{
     threshold:.15
 });
