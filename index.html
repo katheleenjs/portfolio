@@ -1,632 +1,622 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Katheleen Jesus | Product Designer</title>
-    <meta name="description" content="Portfólio de Katheleen Jesus, Product Designer e Desenvolvedora Front-End">
+    <title>Katheleen Jesus | UX Designer</title>
+    <meta name="description"
+        content="Portfólio de Katheleen Jesus, UX Designer em formação. Cases de pesquisa, arquitetura da informação, UI e front-end.">
+    <meta name="theme-color" content="#09090B">
+    <meta property="og:type" content="website">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
     <link rel="stylesheet" href="css/style.css">
-
+    <link rel="stylesheet" href="css/effects.css">
+    <script>
+        /* Tema e idioma antes da pintura (evita flash) */
+        (function () {
+            try {
+                var s = localStorage.getItem("theme");
+                var light = s ? s === "light" : window.matchMedia("(prefers-color-scheme: light)").matches;
+                document.documentElement.setAttribute("data-theme", light ? "light" : "dark");
+            } catch (e) { document.documentElement.setAttribute("data-theme", "dark"); }
+        })();
+    </script>
+    <link rel="stylesheet" href="css/shared.css">
 </head>
-<header class="header">
 
-    <div class="container">
+<body data-sh-home>
+    <a class="sh-skip" href="#main">Pular para o conteúdo</a>
 
-        <nav class="navbar">
-
-            <a href="#home" class="logo">
-                        <img src="./assets/images/LogoWhite.png" alt="KJ" width="40" height="40">
-                <span class="logo-dot"></span>
-
-            </a>
-
-            <ul class="nav-menu">
-
-                <li><a href="#sobre">Sobre</a></li>
-
-                <li><a href="#projetos">Projetos</a></li>
-
-                <li><a href="#skills">Skills</a></li>
-
-                <li><a href="#processo">Processo</a></li>
-
-                <li><a href="#contato">Contato</a></li>
-
-                
-            </ul>
-            <button id="theme-toggle" class="theme-toggle" aria-label="Alternar tema">
-                <i class="fa-solid fa-moon"></i>
-            </button>
-
-        </nav>
-
-    </div>
-
-</header>
-
-<section class="hero" id="home">
-
-    <div class="container hero-container">
-
-        <div class="hero-left">
-
-            <span class="hero-tag">
-
-                PRODUCT DESIGNER
-
-            </span>
-
-<h1 class="hero-title">
-    Design começa quando a gente
-    <span id="typing-text"></span>
-</h1>
-
-            <p>
-
-Criando experiências digitais simples,
-funcionais e pensadas para pessoas.
-
-            </p>
-
-            <div class="hero-actions">
-
-                <a href="#projetos" class="btn-primary">
-
-                    Explorar projetos
-
+    <header class="header">
+        <div class="container">
+            <nav class="navbar" aria-label="Navegação principal">
+                <a href="#home" class="logo" aria-label="Katheleen Jesus, início">
+                    <img id="site-logo-white" src="./assets/images/LogoWhite.png" alt="" width="30" height="30">
+                    <span class="logo-dot" aria-hidden="true"></span>
                 </a>
 
-                <a href="./assets/KatheleenJdsCV.pdf" class="btn-secondary">
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="#projetos">Projetos</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
 
-                    Currículo
+                <div class="sh-actions">
+                    <div class="sh-lang" role="group" aria-label="Idioma">
+                        <button type="button" data-lang="pt" aria-pressed="true" lang="pt"
+                            aria-label="Português">PT</button>
+                        <button type="button" data-lang="en" aria-pressed="false" lang="en"
+                            aria-label="English">EN</button>
+                        <button type="button" data-lang="es" aria-pressed="false" lang="es"
+                            aria-label="Español">ES</button>
+                    </div>
 
-                </a>
+                    <button id="theme-toggle" class="theme-toggle" aria-label="Alternar entre tema claro e escuro"
+                        aria-pressed="false">
+                        <i class="fa-solid fa-moon" aria-hidden="true"></i>
+                    </button>
+            </nav>
+        </div>
 
-                <div class="hero-social">
+        <button type="button" class="sh-menu-toggle" data-sh-menu-toggle aria-label="Abrir menu" aria-expanded="false"
+            aria-controls="sh-menu">
+            <span></span><span></span><span></span>
+        </button>
+    </header>
 
-                    <a href="https://linkedin.com/in/katheleenjesus/">
+    <section class="hero" id="home">
+        <div class="container hero-container">
+            <div class="hero-left">
+                <span class="hero-tag"> UX DESIGNER </span>
 
-                        <i class="fa-brands fa-linkedin-in"></i>
+                <h1 class="hero-title">
+                    Design começa quando a gente
+                    <span id="typing-text" data-i18n-skip></span>
+                </h1>
 
-                    </a>
+                <p class="hero-availability">
+                    <span class="availability-dot" aria-hidden="true"></span>
+                    Aberta a oportunidades
+                </p>
 
-                    <a href="https://github.com/katheleenjs">
+                <p>
+                    Crio experiências digitais simples,
+                    funcionais e pensadas para pessoas.
+                </p>
 
-                        <i class="fa-brands fa-github"></i>
+                <div class="hero-actions">
+                    <a href="#projetos" class="btn-primary">Explorar projetos</a>
+                    <a href="./assets/KatheleenJdsCV.pdf" class="btn-secondary" target="_blank"
+                        rel="noopener">Currículo</a>
 
-                    </a>
-
+                    <div class="hero-social">
+                        <a href="https://linkedin.com/in/katheleenjesus/" aria-label="LinkedIn de Katheleen Jesus"
+                            target="_blank" rel="noopener">
+                            <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
+                        </a>
+                        <a href="https://github.com/katheleenjs" aria-label="GitHub de Katheleen Jesus" target="_blank"
+                            rel="noopener">
+                            <i class="fa-brands fa-github" aria-hidden="true"></i>
+                        </a>
+                    </div>
                 </div>
-
             </div>
 
-        </div>
+            <div class="hero-right">
+                <div class="hero-graphic">
+                    <div class="gradient-glow"></div>
+                    <div class="gradient-glow glow-secondary"></div>
+                    <div class="center-circle"></div>
+                    <div class="orbit orbit-1"></div>
+                    <div class="orbit orbit-2"></div>
+                    <div class="orbit orbit-3"></div>
 
-        <div class="hero-right">
+                    <div class="floating-card card-top">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <span>UX Design</span>
+                    </div>
 
-    <div class="hero-graphic">
+                    <div class="floating-card card-left">
+                        <i class="fa-solid fa-pen-ruler"></i>
+                        <span>Service Design</span>
+                    </div>
 
-        <div class="gradient-glow"></div>
-        <div class="gradient-glow glow-secondary"></div>
+                    <div class="floating-card card-right">
+                        <i class="fa-solid fa-cube"></i>
+                        <span>Product Design</span>
+                    </div>
 
-        <div class="center-circle"></div>
-
-        <div class="orbit orbit-1"></div>
-        <div class="orbit orbit-2"></div>
-        <div class="orbit orbit-3"></div>
-
-        <div class="floating-card card-top">
-
-            <i class="fa-solid fa-magnifying-glass"></i>
-
-            <span>UX Research</span>
-
-        </div>
-
-        <div class="floating-card card-left">
-
-            <i class="fa-solid fa-pen-ruler"></i>
-
-            <span>UI Design</span>
-
-        </div>
-
-        <div class="floating-card card-right">
-
-            <i class="fa-solid fa-cube"></i>
-
-            <span>Product Design</span>
-
-        </div>
-
-        <div class="floating-card card-bottom">
-
-            <i class="fa-solid fa-code"></i>
-
-            <span>Front-end</span>
-
-        </div>
-
-    </div>
-
-</div>
-
-</section>
-
-<section class="projects reveal" id="projetos">
-
-    <div class="container">
-
-        <div class="section-title">
-
-            <span>Projetos</span>
-
-            <h2>Projetos que marcaram minha evolução.</h2>
-
-        </div>
-
-        <div class="projects-grid">
-
-            <!-- Fake Fraud -->
-
-            <article class="project-card featured">
-
-                <div class="project-image">
-
-                    <img src="assets/images/fakefraud.png"
-                        alt="Fake Fraud">
-
-                </div>
-
-                <div class="project-content">
-
-                    <h3>Fake Fraud</h3>
-                    <div class="project-category">
-
-    Product Design
-
-</div>
-                    <p>
-
-                        Plataforma colaborativa desenvolvida para incentivar a verificação de informações antes do compartilhamento, unindo pesquisa com usuários, arquitetura da informação, prototipação e uma interface intuitiva.
-
-                    </p>
-
-                    <div class="project-tags">
-
-                        <span>UX Research</span>
-                        <span>UI Design</span>
+                    <div class="floating-card card-bottom">
+                        <i class="fa-solid fa-code"></i>
                         <span>Front-end</span>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <section class="projects reveal" id="projetos">
+        <div class="container">
+            <div class="section-title">
+                <span>Projetos</span>
+                <h2>Projetos que marcaram minha evolução.</h2>
+            </div>
+
+            <div class="projects-grid">
+
+                <article class="project-card featured">
+                    <div class="project-image">
+                        <img src="assets/images/fakefraud.png"
+                            alt="Interface do Fraud, plataforma para avaliar conteúdos suspeitos" loading="lazy">
+                    </div>
+                    <div class="project-content">
+                        <h3>Fake Fraud</h3>
+                        <div class="project-category">Product Design</div>
+                        <p>
+                            Plataforma colaborativa para incentivar a verificação de informações antes do
+                            compartilhamento, unindo pesquisa com usuários, arquitetura da informação, prototipação e
+                            uma interface intuitiva.
+                        </p>
+
+                        <p class="project-result">
+                            <strong>Resultado:</strong> MVP conceitual navegável no Figma, com 7 fluxos e pesquisa com
+                            12 participantes.
+                        </p>
+
+                        <div class="project-tags">
+                            <span>UX Research</span>
+                            <span>UI Design</span>
+                            <span>Arquitetura da Informação</span>
+                        </div>
+                        <a href="./fake-fraud.html" class="project-link" aria-label="Ver o case Fake Fraud"> Ver Case <i
+                                class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-image">
+
+                        <img src="assets/images/ecoviva.png" alt="EcoViva">
 
                     </div>
 
-                    <a href="./fake-fraud.html" class="project-link">
+                    <div class="project-content">
 
-    Ver projeto
+                        <h3>EcoViva</h3>
+                        <div class="project-category">
 
-    <i class="fa-solid fa-arrow-right"></i>
+                            UX/UI Design
 
-</a>
+                        </div>
+                        <p>
 
-                </div>
+                            Projeto de UX/UI voltado à conscientização ambiental, com foco em criar uma experiência
+                            simples e motivadora para incentivar hábitos mais sustentáveis no dia a dia.
 
-            </article>
+                        </p>
 
-            <!-- EcoViva -->
+                        <div class="project-tags">
 
-            <article class="project-card">
+                            <span>UX</span>
 
-                <div class="project-image">
+                            <span>Interface</span>
 
-                    <img src="assets/images/ecoviva.png"
-                        alt="EcoViva">
+                            <span>Protótipo</span>
 
-                </div>
+                        </div>
+                        <a href="./ecoviva.html" class="project-link">
 
-                <div class="project-content">
+                            Ver projeto
 
-                    <h3>EcoViva</h3>
-                    <div class="project-category">
+                            <i class="fa-solid fa-arrow-right"></i>
 
-    UX/UI Design
+                        </a>
+                    </div>
 
-</div>
-                    <p>
+                </article>
 
-                      Projeto de UX/UI voltado à conscientização ambiental, com foco em criar uma experiência simples e motivadora para incentivar hábitos mais sustentáveis no dia a dia.
+                <!-- SN -->
 
-                    </p>
+                <article class="project-card">
 
-                    <div class="project-tags">
+                    <div class="project-image">
 
-                        <span>UX</span>
-
-                        <span>Interface</span>
-
-                        <span>Protótipo</span>
+                        <img src="assets/images/sn.png" alt="SN">
 
                     </div>
-<a href="./ecoviva.html" class="project-link">
 
-    Ver projeto
+                    <div class="project-content">
 
-    <i class="fa-solid fa-arrow-right"></i>
+                        <h3>SN - Iniciativa Esportiva</h3>
+                        <div class="project-category">
 
-</a>
-                </div>
+                            Service Design
 
-            </article>
+                        </div>
+                        <p>
 
-            <!-- Portfolio -->
+                            Iniciativa esportiva em fase de estruturação, que tem como proposta oferecer treinamentos
+                            gratuitos de futebol para jovens da rede pública.
 
-            <article class="project-card">
+                        </p>
 
-                <div class="project-image">
+                        <div class="project-tags">
 
-                    <img src="assets/images/portfolio.png"
-                        alt="Portfolio">
+                            <span>UX</span>
 
-                </div>
+                            <span>Service Design</span>
 
-                <div class="project-content">
+                            <span>Design Thinking</span>
 
-                    <h3>Portfólio</h3>
-                    <div class="project-category">
+                        </div>
+                        <a href="./sn.html" class="project-link">
 
-    Front-end
+                            Ver projeto
 
-</div>
-                    <p>
+                            <i class="fa-solid fa-arrow-right"></i>
 
-                        Portfólio desenvolvido do zero para apresentar minha trajetória, projetos e processo de design, combinando identidade visual, microinterações e desenvolvimento front-end.
+                        </a>
+                    </div>
 
-                    </p>
+                </article>
 
-                    <div class="project-tags">
+                <!-- Portfolio -->
 
-                        <span>HTML</span>
+                <article class="project-card">
 
-                        <span>CSS</span>
+                    <div class="project-image">
 
-                        <span>JavaScript</span>
+                        <img src="assets/images/portfolio.png" alt="Portfolio">
 
                     </div>
-<a href="https://github.com/katheleenjs/portfolio.git" class="project-link">
 
-    Ver projeto
+                    <div class="project-content">
 
-    <i class="fa-solid fa-arrow-right"></i>
+                        <h3>Portfólio</h3>
+                        <div class="project-category">
 
-</a>
-                </div>
+                            Front-end
 
-            </article>
+                        </div>
+                        <p>
 
-            <!-- Learning -->
+                            Portfólio desenvolvido do zero para apresentar minha trajetória, projetos e processo de
+                            design, combinando identidade visual, microinterações e desenvolvimento front-end.
 
-            <article class="project-card">
+                        </p>
 
-                <div class="project-image">
+                        <div class="project-tags">
 
-                    <img src="assets/images/journal.png"
-                        alt="Learning Journal">
+                            <span>HTML</span>
 
-                </div>
+                            <span>CSS</span>
 
-                <div class="project-content">
+                            <span>JavaScript</span>
 
-                    <h3>Learning Journal</h3>
-                    <div class="project-category">
+                        </div>
+                        <a href="https://github.com/katheleenjs/portfolio.git" class="project-link">
 
-    Estudos
+                            Ver projeto
 
-</div>
-                    <p>
+                            <i class="fa-solid fa-arrow-right"></i>
 
-                        Repositório que documenta minha jornada de aprendizado em tecnologia e design, organizando conhecimentos, referências e práticas desenvolvidas durante os estudos.
+                        </a>
+                    </div>
 
-                    </p>
+                </article>
 
-                    <div class="project-tags">
+                <!-- Learning -->
 
-                        <span>GitHub</span>
+                <article class="project-card">
 
-                        <span>Markdown</span>
+                    <div class="project-image">
 
-                        <span>Estudos</span>
+                        <img src="assets/images/journal.png" alt="Learning Journal">
 
                     </div>
-<a href="https://github.com/katheleenjs/learning-journal" class="project-link">
 
-    Ver projeto
+                    <div class="project-content">
 
-    <i class="fa-solid fa-arrow-right"></i>
+                        <h3>Learning Journal</h3>
+                        <div class="project-category">
 
-</a>
-                </div>
+                            Estudos
 
-            </article>
+                        </div>
+                        <p>
 
-        </div>
+                            Repositório que documenta minha jornada de aprendizado em tecnologia e design, organizando
+                            conhecimentos, referências e práticas desenvolvidas durante os estudos.
 
-    </div>
+                        </p>
 
-</section>
+                        <div class="project-tags">
 
-<section class="skills reveal" id="skills">
+                            <span>GitHub</span>
 
-    <div class="container">
+                            <span>Markdown</span>
 
-        <div class="section-title">
+                            <span>Estudos</span>
 
-            <span>Skills</span>
+                        </div>
+                        <a href="https://github.com/katheleenjs/learning-journal" class="project-link">
 
-            <h2>Ferramentas e conhecimentos.</h2>
+                            Ver projeto
 
-        </div>
+                            <i class="fa-solid fa-arrow-right"></i>
 
-        <div class="skills-grid">
+                        </a>
+                    </div>
 
-            <article class="skill-card">
-
-                <h3>Estratégia</h3>
-
-                <ul>
-
-                    <li>UX Research</li>
-                    <li>Desk Research</li>
-                    <li>Benchmark</li>
-                    <li>Arquitetura da Informação</li>
-                    <li>User Flow</li>
-
-                </ul>
-
-            </article>
-
-            <article class="skill-card">
-
-                <h3>Design</h3>
-
-                <ul>
-
-                    <li>Wireframes</li>
-                    <li>Prototipação</li>
-                    <li>UI Design</li>
-                    <li>Design System</li>
-                    <li>Testes de Usabilidade</li>
-
-                </ul>
-
-            </article>
-
-            <article class="skill-card">
-
-                <h3>Desenvolvimento</h3>
-
-                <ul>
-
-                    <li>HTML</li>
-                    <li>CSS</li>
-                    <li>JavaScript</li>
-                    <li>Git</li>
-                    <li>GitHub</li>
-
-                </ul>
-
-            </article>
-
-            <article class="skill-card">
-
-                <h3>Ferramentas</h3>
-
-                <ul>
-
-                    <li>Figma</li>
-                    <li>Notion</li>
-                    <li>VS Code</li>
-                    <li>Trello</li>
-                    <li>FigJam</li>
-
-                </ul>
-
-            </article>
-
-        </div>
-
-    </div>
-
-</section>
-
-<section class="process reveal" id="processo">
-
-    <div class="container">
-
-        <div class="section-title">
-
-            <span>Processo</span>
-
-            <h2>Como transformo ideias em produtos.</h2>
-
-        </div>
-
-        <div class="process-timeline">
-
-            <article class="process-item">
-
-                <div class="process-number">01</div>
-
-                <h3>Descobrir</h3>
-
-                <p>
-                    Entendo o contexto, os objetivos do negócio e as necessidades das pessoas antes de pensar em soluções.
-                </p>
-
-            </article>
-
-            <article class="process-item">
-
-                <div class="process-number">02</div>
-
-                <h3>Pesquisar</h3>
-
-                <p>
-                    Organizo informações, identifico oportunidades e valido hipóteses através de pesquisa e análise.
-                </p>
-
-            </article>
-
-            <article class="process-item">
-
-                <div class="process-number">03</div>
-
-                <h3>Explorar</h3>
-
-                <p>
-                    Crio fluxos, wireframes e diferentes caminhos até encontrar a melhor experiência.
-                </p>
-
-            </article>
-
-            <article class="process-item">
-
-                <div class="process-number">04</div>
-
-                <h3>Construir</h3>
-
-                <p>
-                    Desenvolvo interfaces consistentes, protótipos e implementações focadas em qualidade.
-                </p>
-
-            </article>
-
-            <article class="process-item">
-
-                <div class="process-number">05</div>
-
-                <h3>Evoluir</h3>
-
-                <p>
-                    Testo, acompanho resultados e melhoro continuamente a experiência do produto.
-                </p>
-
-            </article>
-
-        </div>
-
-    </div>
-
-</section>
-
-<section class="about reveal" id="sobre">
-
-    <div class="container about-grid">
-
-        <div class="about-image">
-
-            <img src="assets/images/avatar.png" alt="Katheleen Jesus">
-
-        </div>
-
-        <div class="about-content">
-
-            <span>Sobre</span>
-
-            <h2>
-                Designer em formação <br>
-                Sempre aprendendo<br>
-                Sempre construindo
-            </h2>
-
-            <p>
-
-                Minha transição para a tecnologia começou pela curiosidade em entender como produtos digitais realmente são construídos. Hoje estudo Product Design e Front-end para unir estratégia, experiência e implementação em um mesmo processo.
-
-            </p>
-
-            <div class="about-values">
-
-                <div>Pesquisa</div>
-                <div>Colaboração</div>
-                <div>Aprendizado contínuo</div>
-                <div>Atenção aos detalhes</div>
+                </article>
 
             </div>
 
         </div>
 
-    </div>
+    </section>
 
-</section>
+    <section class="skills reveal" id="skills">
 
-<section class="contact reveal" id="contato">
+        <div class="container">
 
-    <div class="contact-glow"></div>
+            <div class="section-title">
 
-    <div class="container">
+                <span>Skills</span>
 
-        <span class="contact-label">
-            CONTATO
-        </span>
+                <h2>Ferramentas e conhecimentos.</h2>
 
-        <h2 class="contact-title">
-            Se você chegou até aqui,
-            acho que vale um café
-            (mesmo que virtual)
-        </h2>
+            </div>
 
-        <p class="contact-text">
-Se você quer conversar sobre design, tecnologia ou tem uma ideia em mente, minha caixa de entrada está sempre aberta!
-        </p>
+            <div class="skills-grid">
 
-        <a href="mailto:seuemail@email.com" class="contact-button">
-            Vamos conversar!
-            <i class="fa-solid fa-arrow-right"></i>
-        </a>
+                <article class="skill-card">
 
-        <div class="contact-links">
+                    <h3>Estratégia</h3>
 
-            <a href="mailto:katheleenjds@gmail.com">
-                <i class="fa-regular fa-envelope"></i>
-                katheleenjds@gmail.com
-            </a>
+                    <ul>
 
-            <a href="https://linkedin.com/in/katheleenjesus/">
-                <i class="fa-brands fa-linkedin-in"></i>
-                LinkedIn
-            </a>
+                        <li>UX Research</li>
+                        <li>Desk Research</li>
+                        <li>Benchmark</li>
+                        <li>Arquitetura da Informação</li>
+                        <li>User Flow</li>
 
-            <a href="https://github.com/katheleenjs">
-                <i class="fa-brands fa-github"></i>
-                GitHub
-            </a>
+                    </ul>
+
+                </article>
+
+                <article class="skill-card">
+
+                    <h3>Design</h3>
+
+                    <ul>
+
+                        <li>Wireframes</li>
+                        <li>Prototipação</li>
+                        <li>UI Design</li>
+                        <li>Design System</li>
+                        <li>Testes de Usabilidade</li>
+
+                    </ul>
+
+                </article>
+
+                <article class="skill-card">
+
+                    <h3>Desenvolvimento</h3>
+
+                    <ul>
+
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>JavaScript</li>
+                        <li>Git</li>
+                        <li>GitHub</li>
+
+                    </ul>
+
+                </article>
+
+                <article class="skill-card">
+
+                    <h3>Ferramentas</h3>
+
+                    <ul>
+
+                        <li>Figma</li>
+                        <li>Notion</li>
+                        <li>VS Code</li>
+                        <li>Trello</li>
+                        <li>FigJam</li>
+
+                    </ul>
+
+                </article>
+
+            </div>
 
         </div>
 
-    </div>
+    </section>
 
-</section>
+    <section class="process reveal" id="processo">
 
-<footer class="footer">
+        <div class="container">
 
-    <div class="container footer-content">
+            <div class="section-title">
 
-        <p>
+                <span>Processo</span>
 
-            © 2026 Katheleen Jesus.
+                <h2>Como transformo ideias em produtos.</h2>
 
-        </p>
+            </div>
 
-    </div>
+            <div class="process-timeline">
 
-</footer>
+                <article class="process-item">
 
-<script src="./src/script.js"></script>
+                    <div class="process-number">01</div>
 
+                    <h3>Descobrir</h3>
+
+                    <p>
+                        Entendo o contexto, os objetivos do negócio e as necessidades das pessoas antes de pensar em
+                        soluções.
+                    </p>
+
+                </article>
+
+                <article class="process-item">
+
+                    <div class="process-number">02</div>
+
+                    <h3>Pesquisar</h3>
+
+                    <p>
+                        Organizo informações, identifico oportunidades e valido hipóteses através de pesquisa e análise.
+                    </p>
+
+                </article>
+
+                <article class="process-item">
+
+                    <div class="process-number">03</div>
+
+                    <h3>Explorar</h3>
+
+                    <p>
+                        Crio fluxos, wireframes e diferentes caminhos até encontrar a melhor experiência.
+                    </p>
+
+                </article>
+
+                <article class="process-item">
+
+                    <div class="process-number">04</div>
+
+                    <h3>Construir</h3>
+
+                    <p>
+                        Desenvolvo interfaces consistentes, protótipos e implementações focadas em qualidade.
+                    </p>
+
+                </article>
+
+                <article class="process-item">
+
+                    <div class="process-number">05</div>
+
+                    <h3>Evoluir</h3>
+
+                    <p>
+                        Testo, acompanho resultados e melhoro continuamente a experiência do produto.
+                    </p>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="about reveal" id="sobre">
+
+        <div class="container about-grid">
+
+            <div class="about-image">
+
+                <img src="assets/images/avatar.png" widt="Katheleen Jesus">
+
+            </div>
+
+            <div class="about-content">
+
+                <span>Sobre</span>
+
+                <h2>
+                    Designer em formação. <br>
+                    Sempre aprendendo.<br>
+                    Sempre construindo.
+                </h2>
+
+                <p>
+                    Minha trajetória começou em Recursos Humanos, mas foi meu contato com a tecnologia que me levou ao
+                    design digital. Hoje, estudo Design Digital e UX, desenvolvendo projetos que conectam pesquisa,
+                    experiência do usuário e interface. Também exploro o front-end para entender melhor como as ideias
+                    se transformam em produtos reais.
+                </p>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="contact reveal" id="contato">
+
+        <div class="contact-glow"></div>
+        <div class="container">
+            <span class="contact-label">
+                CONTATO
+            </span>
+            <h2 class="contact-title">
+                Se você chegou até aqui,
+                acho que vale um café
+                (mesmo que virtual)
+            </h2>
+            <p class="contact-text">
+                Se você quer conversar sobre design, tecnologia ou tem uma ideia em mente, minha caixa de entrada está
+                sempre aberta!
+            </p>
+            <a href="mailto:seuemail@email.com" class="contact-button">
+                Vamos conversar!
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+            <div class="contact-links">
+                <a href="mailto:katheleenjds@gmail.com">
+                    <i class="fa-regular fa-envelope"></i>
+                    katheleenjds@gmail.com
+                </a>
+                <a href="https://linkedin.com/in/katheleenjesus/">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                    LinkedIn
+                </a>
+                <a href="https://github.com/katheleenjs">
+                    <i class="fa-brands fa-github"></i>
+                    GitHub
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="sh-footer">
+        <div class="sh-footer-inner">
+            <div class="sh-footer-bottom">
+                <p>© 2026 Katheleen Jesus.</p>
+                <p>Desenvolvido com HTML, CSS e JavaScript.</p>
+                <button type="button" class="sh-top" data-sh-top>
+                    Voltar ao topo
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" aria-hidden="true">
+                        <path d="M12 19V5M5 12l7-7 7 7" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./src/i18n.js"></script>
+    <script src="./src/shared.js"></script>
+    <script src="./src/script.js" defer></script>
+    <script src="./src/effects.js" defer></script>
 </body>
+
 </html>

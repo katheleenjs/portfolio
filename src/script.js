@@ -30,11 +30,11 @@ animateGlow();
 
 const reveals = document.querySelectorAll(".reveal");
 
-const observer = new IntersectionObserver((entries)=>{
+const observer = new IntersectionObserver((entries) => {
 
-    entries.forEach(entry=>{
+    entries.forEach(entry => {
 
-        if(entry.isIntersecting){
+        if (entry.isIntersecting) {
 
             entry.target.classList.add("active");
 
@@ -42,11 +42,11 @@ const observer = new IntersectionObserver((entries)=>{
 
     });
 
-},{
-    threshold:.15
+}, {
+    threshold: .15
 });
 
-reveals.forEach(item=>observer.observe(item));
+reveals.forEach(item => observer.observe(item));
 
 const toggle = document.getElementById("theme-toggle");
 const icon = toggle.querySelector("i");
@@ -55,14 +55,14 @@ const icon = toggle.querySelector("i");
 const savedTheme = localStorage.getItem("theme");
 
 // Se o usuário já escolheu o tema claro
-if(savedTheme === "light"){
+if (savedTheme === "light") {
 
     document.body.classList.add("light");
 
     icon.classList.remove("fa-moon");
     icon.classList.add("fa-sun");
 
-}else{
+} else {
 
     document.body.classList.remove("light");
 
@@ -72,20 +72,20 @@ if(savedTheme === "light"){
 }
 
 // Clique no botão
-toggle.addEventListener("click",()=>{
+toggle.addEventListener("click", () => {
 
     document.body.classList.toggle("light");
 
-    if(document.body.classList.contains("light")){
+    if (document.body.classList.contains("light")) {
 
-        localStorage.setItem("theme","light");
+        localStorage.setItem("theme", "light");
 
         icon.classList.remove("fa-moon");
         icon.classList.add("fa-sun");
 
-    }else{
+    } else {
 
-        localStorage.setItem("theme","dark");
+        localStorage.setItem("theme", "dark");
 
         icon.classList.remove("fa-sun");
         icon.classList.add("fa-moon");
@@ -98,11 +98,11 @@ const navbar = document.querySelector(".navbar");
 
 window.addEventListener("scroll", () => {
 
-    if(window.scrollY > 40){
+    if (window.scrollY > 40) {
 
         navbar.classList.add("scrolled");
 
-    }else{
+    } else {
 
         navbar.classList.remove("scrolled");
 
@@ -126,40 +126,41 @@ const text = document.getElementById("typing-text");
 let phraseIndex = 0;
 let letterIndex = 0;
 let deleting = false;
+let typingTimer;
 
-function typeEffect(){
+function typeEffect() {
 
-    const current = phrases[phraseIndex];
+    const current = window.siteI18n.t(phrases[phraseIndex]);
 
-    if(!deleting){
+    if (!deleting) {
 
-        text.textContent = current.substring(0,letterIndex);
+        text.textContent = current.substring(0, letterIndex);
 
         letterIndex++;
 
-        if(letterIndex > current.length){
+        if (letterIndex > current.length) {
 
             deleting = true;
 
-            setTimeout(typeEffect,1800);
+            typingTimer = setTimeout(typeEffect, 1800);
 
             return;
 
         }
 
-    }else{
+    } else {
 
-        text.textContent = current.substring(0,letterIndex);
+        text.textContent = current.substring(0, letterIndex);
 
         letterIndex--;
 
-        if(letterIndex < 0){
+        if (letterIndex < 0) {
 
             deleting = false;
 
             phraseIndex++;
 
-            if(phraseIndex >= phrases.length){
+            if (phraseIndex >= phrases.length) {
 
                 phraseIndex = 0;
 
@@ -169,8 +170,19 @@ function typeEffect(){
 
     }
 
-    setTimeout(typeEffect,deleting ? 35 : 70);
+    typingTimer = setTimeout(typeEffect, deleting ? 35 : 70);
 
 }
+
+document.addEventListener("sitelangchange", () => {
+
+    clearTimeout(typingTimer);
+    phraseIndex = 0;
+    letterIndex = 0;
+    deleting = false;
+    text.textContent = "";
+    typeEffect();
+
+});
 
 typeEffect();

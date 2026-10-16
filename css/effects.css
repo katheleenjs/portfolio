@@ -1,0 +1,319 @@
+/* =========================================================
+   EFFECTS.CSS: interações e efeitos de rolagem
+   Funciona junto com src/effects.js. Tudo é aditivo:
+   se este arquivo for removido, o site volta ao normal.
+========================================================= */
+
+:root {
+    --fx-rgb: 139, 92, 246;
+    --fx-ink: #f5f5f5;
+    --fx-line: rgba(255, 255, 255, 0.22);
+    --fx-curtain: #09090b;
+    --fx-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+html[data-theme="light"] {
+    --fx-ink: #18181b;
+    --fx-line: rgba(0, 0, 0, 0.24);
+    --fx-curtain: #f7f7fa;
+}
+
+/* cor de destaque e cor de texto de cada página */
+html[data-fx-page="fake-fraud"] {
+    --fx-rgb: 255, 59, 48;
+    --fx-ink: var(--white, #f5f5f5);
+}
+
+html[data-fx-page="ecoviva"] {
+    --fx-rgb: 76, 175, 80;
+}
+
+html[data-fx-page="sn"] {
+    --fx-rgb: 23, 61, 50;
+    --fx-ink: var(--sn-ink, #191a18);
+}
+
+html[data-fx-page="sn"][data-theme="dark"] {
+    --fx-rgb: 143, 209, 181;
+}
+
+/* a cor do texto da home e da EcoViva é definida no <body>, não no <html> */
+html[data-fx-page="index"] body {
+    --fx-ink: var(--text, #f5f5f5);
+}
+
+html[data-fx-page="ecoviva"] body {
+    --fx-ink: var(--eco-text, #18281d);
+}
+
+/* ---------- barra de progresso de leitura ---------- */
+.fx-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    z-index: 2500;
+    pointer-events: none;
+}
+
+.fx-progress span {
+    display: block;
+    width: 100%;
+    height: 100%;
+    transform: scaleX(0);
+    transform-origin: 0 50%;
+    background: linear-gradient(90deg, rgba(var(--fx-rgb), 0.35), rgb(var(--fx-rgb)));
+    box-shadow: 0 0 12px rgba(var(--fx-rgb), 0.6);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+
+    /* ---------- entrada da página ---------- */
+    html.fx body {
+        animation: fxPage 0.6s ease backwards;
+    }
+
+    html.fx :is(.hero-left, .hero-content, .hero:not(#home))>* {
+        animation: fxUp 0.95s var(--fx-ease) backwards;
+        animation-delay: calc(var(--fx-i, 0) * 110ms + 160ms);
+    }
+
+    html.fx .hero-right,
+    html.fx .hero-visual {
+        animation: fxZoom 1.3s var(--fx-ease) 0.3s backwards;
+    }
+
+    @keyframes fxPage {
+        from {
+            opacity: 0;
+        }
+    }
+
+    @keyframes fxUp {
+        from {
+            opacity: 0;
+            transform: translateY(36px);
+            filter: blur(8px);
+        }
+    }
+
+    @keyframes fxZoom {
+        from {
+            opacity: 0;
+            transform: scale(0.82);
+            filter: blur(10px);
+        }
+    }
+
+    /* ---------- revelar itens ao rolar ---------- */
+    html.fx .fx-item {
+        opacity: 0;
+        transform: translateY(44px) scale(0.98);
+        filter: blur(6px);
+        transition:
+            opacity 0.85s var(--fx-ease),
+            transform 0.85s var(--fx-ease),
+            filter 0.85s var(--fx-ease);
+        transition-delay: var(--fx-d, 0ms);
+    }
+
+    html.fx .fx-item.fx-in {
+        opacity: 1;
+        transform: none;
+        filter: none;
+    }
+}
+
+/* ---------- brilho que segue o cursor dentro dos cards ---------- */
+.fx-glow {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    border-radius: inherit;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    background: radial-gradient(380px circle at var(--mx, 50%) var(--my, 50%),
+            rgba(var(--fx-rgb), 0.17),
+            transparent 62%);
+}
+
+.fx-has-glow:hover>.fx-glow {
+    opacity: 1;
+}
+
+.fx-tilting {
+    transition:
+        transform 0.1s ease-out,
+        box-shadow 0.45s ease,
+        border-color 0.45s ease !important;
+    will-change: transform;
+}
+
+/* ---------- cursor personalizado (só com mouse) ---------- */
+.fx-cursor,
+.fx-cursor-dot {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0;
+    mix-blend-mode: difference;
+    transition: opacity 0.3s ease;
+}
+
+.fx-cursor {
+    width: 38px;
+    height: 38px;
+    margin: -19px 0 0 -19px;
+    border: 1.5px solid #fff;
+    border-radius: 50%;
+    transition:
+        opacity 0.3s ease,
+        width 0.35s var(--fx-ease),
+        height 0.35s var(--fx-ease),
+        margin 0.35s var(--fx-ease),
+        background 0.35s ease;
+}
+
+.fx-cursor-dot {
+    width: 6px;
+    height: 6px;
+    margin: -3px 0 0 -3px;
+    border-radius: 50%;
+    background: #fff;
+}
+
+html.fx-cursor-on .fx-cursor,
+html.fx-cursor-on .fx-cursor-dot {
+    opacity: 1;
+}
+
+.fx-cursor.is-link {
+    width: 62px;
+    height: 62px;
+    margin: -31px 0 0 -31px;
+    background: #fff;
+}
+
+.fx-cursor.is-card {
+    width: 92px;
+    height: 92px;
+    margin: -46px 0 0 -46px;
+}
+
+.fx-cursor.is-down {
+    width: 26px;
+    height: 26px;
+    margin: -13px 0 0 -13px;
+}
+
+/* ---------- faixa em movimento (home) ---------- */
+.fx-marquee {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    padding: 28px 0;
+    border-block: 1px solid var(--fx-line);
+    user-select: none;
+}
+
+.fx-marquee-track {
+    display: flex;
+    align-items: center;
+    width: max-content;
+    will-change: transform;
+}
+
+.fx-marquee-track span {
+    padding-right: 0.35em;
+    font-size: clamp(2.4rem, 6.5vw, 5.2rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    white-space: nowrap;
+    color: transparent;
+    -webkit-text-stroke: 1.2px var(--fx-line);
+}
+
+.fx-marquee-track span.solid {
+    color: var(--fx-ink);
+    -webkit-text-stroke: 0;
+}
+
+.fx-marquee-track i {
+    padding-right: 0.5em;
+    font-style: normal;
+    font-size: clamp(1.4rem, 3vw, 2.4rem);
+    color: rgb(var(--fx-rgb));
+}
+
+/* ---------- texto que "acende" conforme você rola ---------- */
+.fx-scrub {
+    background: linear-gradient(180deg,
+            var(--fx-ink) 0,
+            var(--fx-ink) calc(var(--fx-p, 0) * 125% - 25%),
+            color-mix(in srgb, var(--fx-ink) 24%, transparent) calc(var(--fx-p, 0) * 125%),
+            color-mix(in srgb, var(--fx-ink) 24%, transparent) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}
+
+.fx-par-scale {
+    scale: 1.14;
+}
+
+/* ---------- transição entre páginas ---------- */
+.fx-curtain {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    background: var(--fx-curtain);
+    transform: translateY(101%);
+    transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+    pointer-events: none;
+}
+
+.fx-curtain::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: rgb(var(--fx-rgb));
+    box-shadow: 0 0 20px rgba(var(--fx-rgb), 0.8);
+}
+
+html.fx-leaving .fx-curtain {
+    transform: none;
+    pointer-events: all;
+}
+
+/* celulares e telas touch: sem cursor e sem efeitos de mouse */
+@media (hover: none),
+(pointer: coarse) {
+
+    .fx-cursor,
+    .fx-cursor-dot,
+    .fx-glow {
+        display: none !important;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .fx-curtain,
+    .fx-marquee {
+        display: none !important;
+    }
+
+    .fx-cursor,
+    .fx-cursor-dot {
+        display: none !important;
+    }
+}
